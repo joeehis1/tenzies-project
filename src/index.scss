@@ -1,0 +1,186 @@
+$accent-color: #646cff;
+$black: #242424;
+
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: alarmClock;
+  src: url('font/alarm\ clock.ttf');
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #0B2434
+}
+
+
+
+body {
+  margin: 0;
+  padding: 1.875rem;
+  text-align: center;
+}
+
+.app-wrapper{
+  max-width: 300px;
+  position: relative;
+  width: 88%;
+  margin: 0 auto;
+  background-color: #F5F5F5;
+  color: $black;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 2px solid;
+  
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  color: #F5F5F5;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+
+  &:disabled{
+    cursor: not-allowed;
+  }
+}
+
+
+.dice{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-block: 1.6rem;
+}
+
+li{
+  &:last-of-type{
+    grid-column: 2/3;
+  }
+}
+
+.btn-dice{
+  width: 100%;
+  padding: 0.4rem;
+  aspect-ratio: 1;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  box-shadow: 0px 3px 3px 2px grey;
+  &.is-held{
+    background-color: #59E391;
+    color:#171a15
+  }
+}
+
+.btn-dice .face{
+  width: 80%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: red;
+  place-self: center;
+}
+
+.btn-dice{
+  &.two .face:not(:nth-child(4n-9)){
+    visibility: hidden;
+  }
+  &.one .face:not(:nth-child(5n)) {
+    visibility: hidden
+  }
+  &.six .face:nth-child(3n+2) {
+    visibility: hidden
+  }
+  &.four .face:nth-child(2n+1) {
+    visibility: hidden
+  }
+  &.five .face:not(:nth-child(2n-3)) {
+    visibility: hidden
+  }
+  &.three .face:not(:nth-child(4n-3)) {
+    visibility: hidden
+  }
+}
+
+
+
+.btn-ctrl{
+  padding: 0.5rem 1.3rem;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.3rem;
+}
+
+
+.timer{
+  text-align: left;
+  background-color: #0B2434;
+  color: white;
+  font-size: 1.4rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  margin-top: 0;
+  font-family: alarmClock;
+}
+
+//Table Styles
+
+.scores{
+  // table-layout: fixed;
+  font-size: 0.8rem;
+  border: 2px solid;
+  border-collapse: collapse;
+  border-radius: 6px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateY(-35rem);
+  opacity: 0;
+  transition: width 350ms ease-in, transform 350ms ease-in, opacity 350ms ease-in;
+
+  &.is-shown{
+  transform: translateY(0);
+  opacity: 1;
+    &::after{
+      background-color: transparent;
+    }
+  }
+
+  thead{
+    background-color: #171a15;
+    color:#F5F5F5;
+  }
+
+  th, td{
+    padding-block: 0.3rem;
+  }
+
+  tbody tr:nth-child(odd){
+    background-color: #276185;
+    color: #c5cfbd
+  }
+  tbody tr:nth-child(even) {
+    background-color: #54a3d4;
+  }
+  &::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: #171a15;
+    filter: blur(2px);
+    transition: background-color 350ms ease-in;
+  }
+}
