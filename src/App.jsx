@@ -90,7 +90,7 @@ function App() {
           </p>
           <DiceComponent setDiceCollection={setDiceCollection}  diceCollection={diceCollection} />
           <button className='btn btn-ctrl' onClick={rollDice}>{gameEnded ? 'Reset Game' : 'Roll'}</button>
-          <button className='btn-ctrl' disabled={gamesPlayed.length <= 0} onClick={()=> setIsVisible(boolean => !boolean)}>Show Scores</button>
+          <button className='btn-ctrl' disabled={gamesPlayed.length <= 0} onClick={()=> setIsVisible(boolean => !boolean)}>{isVisible ? 'Hide Scores' : 'Show Scores'}</button>
         </section>
         {/* To display the time */}
         <Timer count={count} setCount={setCount} gameEnded={gameEnded} />
