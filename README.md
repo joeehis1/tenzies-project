@@ -1,3 +1,4 @@
+
 # Tenzies
 
 ## Table of contents
@@ -27,3 +28,5 @@ Delve into the inner workings of Tenzies through its organized folder structure 
 ## Contributions
 
 As the creator of this version of Tenzies, I welcome contributions aimed at enhancing its functionality and features. Whether it's refining existing mechanics or introducing new elements, your contributions are integral to the continuous improvement of this project. Join me in shaping the future of Tenzies through collaborative efforts and shared innovation.
+
+
